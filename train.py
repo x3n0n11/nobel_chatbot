@@ -17,13 +17,13 @@ labels = []
 responses = []
 
 for intent in data['intents']:
-    for pattern in intent['patterns']:
+    for pattern in intent['questions']:
         training_sentences.append(pattern)
-        training_labels.append(intent['tag'])
+        training_labels.append(intent['intent'])
     responses.append(intent['responses'])
 
-    if intent['tag'] not in labels:
-        labels.append(intent['tag'])
+    if intent['intent'] not in labels:
+        labels.append(intent['intent'])
 
 num_classes = len(labels)
 
